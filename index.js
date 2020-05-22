@@ -25,7 +25,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
-          text: "カレー飲んだことある？", "hoge"
+          text: "カレー飲んだことある？"
+        }));
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "ほげ"
         }));
       }
     }
