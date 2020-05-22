@@ -27,6 +27,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "今日もあっそぼー！",
     "仕方ない",
     "それな",
+    "たしかに",
     "出会いと別れ、それが人生。",
     "それもまた一興",
     "僕と契約して魔法少女にならないか？",
@@ -104,7 +105,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else if (event.message.text.match(/何してる/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
-          text: "生きる意味について考えてるよ！"
+          text: "オーナーズリーグの整理整頓"
         }));
       } else if (event.message.text.match(/バグ/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
