@@ -47,13 +47,13 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   ];
   const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
 
-  const message_question = [
-    "それアンダースタンド",
-    "答えは2です",
-    "わかんない",
-    "俺に聞かれてもなー"
-  ];
-  const message_question = messages_question[Math.floor(Math.random() * messages_question.length)];
+  //const message_question = [
+    //"それアンダースタンド",
+    //"答えは2です",
+    //"わかんない",
+    //"俺に聞かれてもなー"
+  //];
+  //const message_question = messages_question[Math.floor(Math.random() * messages_question.length)];
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
