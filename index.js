@@ -8,7 +8,27 @@ const line_config = {
 
 server.listen(process.env.PORT || 3000);
 
+const bot = new line.Client(line_config);
+
 server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   res.sendStatus(200);
-  console.log(req.body);
+
+  let events_processd = [];
+
+  req.body.events.forEach((event) => {
+    if (event.type == "message" && event.message.type == "text") {
+      if (event.message.text == "こんにちは") {
+        evnet_processed.push(bot.replyMessage(evnet.replyToken, {
+          type: "text",
+          text: "これはこれは"
+        }));
+      }
+    }
+  })
 });
+
+Promise.all(events_processd).then(
+  (response) => {
+    console.log(`${response.length} event(s) processd.`)
+  }
+);
