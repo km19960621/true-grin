@@ -24,11 +24,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         }));
       }
     }
-  })
-});
+  });
 
-Promise.all(events_processd).then(
-  (response) => {
-    console.log(`${response.length} event(s) processd.`)
-  }
-);
+  Promise.all(events_processd).then(
+    (response) => {
+      console.log(`${response.length} event(s) processd.`)
+    }
+  );
+});
