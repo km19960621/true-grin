@@ -26,6 +26,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "祇園精舎の鐘の声\n諸行無常の響きあり",
     "今日もあっそぼー！",
     "仕方ない",
+    "それな",
     "出会いと別れ、それが人生。",
     "それもまた一興",
     "僕と契約して魔法少女にならないか？",
@@ -47,7 +48,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   const messages_one = [
     "botなめてるでしょw",
-    "あああああ",
     "会話する気ある？"
   ];
   const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
@@ -130,7 +130,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     } else if (event.type == "message" && event.message.type == "sticker") {
       events_processed.push(bot.replyMessage(event.replyToken, {
         type: "text",
-        text: "いきなりどーしたっ！？"
+        text: "ああ、スタンプで会話終わらそうとするあれね"
       }));
     }
   });
