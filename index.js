@@ -23,7 +23,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "運命運命w",
     "お疲れ様〜☆",
     "カレー飲んだことある？",
-    "祇園精舎の鐘の声\n諸行無常の響きあり\n",
+    "祇園精舎の鐘の声\n諸行無常の響きあり",
     "今日もあっそぼー！"
     "仕方ない",
     "それもまた一興",
@@ -45,12 +45,12 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   const message_thank = messages_thank[Math.floor(Math.random() * messages_thank.length)];
 
   const messages_one = [
-    "botなめてる？",
+    "botなめてるでしょw",
     "あああああ",
     "会話する気ある？"
   ];
   const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
-
+/*
   const messages_question = [
     "うん",
     "そうだね",
@@ -61,6 +61,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "俺に聞かれてもなー"
   ];
   const message_question = messages_question[Math.floor(Math.random() * messages_question.length)];
+*/
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
@@ -97,7 +98,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else if (event.message.text.match(/知らな/) || event.message.text.match(/知らん/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
-          text: "これだから若いやつは"
+          text: "これだから若いもんは"
         }));
       } else if (event.message.text.match(/何してる/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
@@ -114,12 +115,12 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
          type: "text",
          text: `${event.message.text.substr(0, 4)}クエストの間違いでは？`
         }));
-      //} else if (event.message.text.match(/?/) || event.message.text.match(/？/)) {
-        //events_processed.push(bot.replyMessage(event.replyToken, {
-         //type: "text",
-         //text: message_question
-        //}));
-      } else {
+      }/* else if (event.message.text.match(/?/) || event.message.text.match(/？/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+         type: "text",
+         text: message_question
+        }));
+      }*/ else {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: message
