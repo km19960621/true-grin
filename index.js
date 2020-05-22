@@ -23,14 +23,26 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       if (event.message.text.match(/いる？/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
-          text: "ども"
+          text: "いないよ"
+        }));
+      } else if (event.message.text.match(/彼氏いる？/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "男だぜ、僕は！"
         }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
-          text: message || "niiii"
+          text: message
         }));
       }
+
+    }
+    if (event.type == "message" && event.message.type == "sticker") {
+      events_processed.push(bot.replyMessage(event.replyToken, {
+        type: "text",
+        text: "いきなりどーしたっ！？"
+      }));
     }
   });
 
