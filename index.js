@@ -19,13 +19,14 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "ありがとう",
     "嫌です！",
     "ウリィィィィィィィィ",
+    "お疲れ様〜☆",
     "男だぜ、僕は！",
     "会話する気ある？",
     "カレー飲んだことある？",
     "かっこいい♪",
     "彼女いるの？",
     "可愛いよね",
-    "祇園精舎の鐘の声\n諸行無常の響きあり\n"
+    "祇園精舎の鐘の声\n諸行無常の響きあり\n".
     "気にすんな",
     "今度一緒に遊びに行こうよ！",
     "それなら僕と契約して魔法少女にならないか？",
@@ -33,7 +34,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "痴漢者トーマス",
     "でしょう？",
     "テヘペロ",
-    "ホークス優勝したね！"
+    "ホークス優勝したね！",
     "ほげ"
   ];
   const message = messages[Math.floor(Math.random() * messages.length)];
