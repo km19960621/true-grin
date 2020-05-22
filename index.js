@@ -31,6 +31,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘"
   ];
   const message = messages[Math.floor(Math.random() * messages.length)];
+
   const messages_thank = [
       "ありがとう",
       "気にすんな",
@@ -38,8 +39,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "テヘペロ"
   ];
   const message_thank = messages_thank[Math.floor(Math.random() * messages_thank.length)];
+
   const messages_one = [
-    "botなめてるっしょ？",
+    "botなめてる？",
     "あああああ",
     "会話する気ある？"
   ];
@@ -47,10 +49,10 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
-      if (event.message.text.length == 1 {
+      if (event.message.text.length == 1) {
        events_processed.push(bot.replyMessage(event.replyToken, {
          type: "text",
-         text: "いないよ"
+         text: message_one
        }));
       } else if (event.message.text == "@bye") {
         events_processed.push(bot.replyMessage(event.replyToken, {
