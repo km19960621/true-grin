@@ -59,6 +59,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           type: "text",
           text: "効かん！"
         }));
+      } else if (event.message.text.match(/GO/) || event.message.text.match(/行け/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "マツケンでGO!"
+        }));
       } else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
@@ -89,6 +94,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           type: "text",
           text: "仕様です"
         }));
+      } else if (event.message.text.length == 8) {
+       events_processed.push(bot.replyMessage(event.replyToken, {
+         type: "text",
+         text: `${event.message.text.substr(0, 4)}クエスト`
+       }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
