@@ -17,41 +17,60 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   const messages = [
     "@bye",
-    "ありがとう",
-    "嫌です！",
     "ウリィィィィィィィィ",
+    "運命運命w",
     "お疲れ様〜☆",
-    "男だぜ、僕は！",
-    "会話する気ある？",
     "カレー飲んだことある？",
-    "かっこいい♪",
     "彼女いるの？",
-    "可愛いよね",
     "祇園精舎の鐘の声\n諸行無常の響きあり\n",
-    "気にすんな",
     "今度一緒に遊びに行こうよ！",
     "それなら僕と契約して魔法少女にならないか？",
     "黙れ豆",
     "痴漢者トーマス",
-    "でしょう？",
     "どりん",
-    "テヘペロ",
-    "ホークス優勝したね！",
-    "ほげ"
+    "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘"
   ];
   const message = messages[Math.floor(Math.random() * messages.length)];
+  const messages_thank = [
+      "ありがとう",
+      "気にすんな",
+      "でしょ？",
+      "テヘペロ"
+  ];
+  const message_thank = messages_thank[Math.floor(Math.random() * messages_thank.length)];
+  const messages_one = [
+    "botなめてるっしょ？",
+    "あああああ",
+    "会話する気ある？"
+  ];
+  const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
-      if (event.message.text == "@bye") {
+      if (event.message.text.length == 1 {
+       events_processed.push(bot.replyMessage(event.replyToken, {
+         type: "text",
+         text: "いないよ"
+       }));
+      } else if (event.message.text == "@bye") {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "効かん！"
+        }));
+      } else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: message_thank
         }));
       } else if (event.message.text.match(/いる？/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "いないよ"
+        }));
+      } else if (event.message.text.match(/オーナーズリーグ/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "オーナーズリーグ最高！"
         }));
       } else if (event.message.text.match(/知らな/) || event.message.text.match(/知らん/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
