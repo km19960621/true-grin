@@ -17,15 +17,19 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   const messages = [
     "@bye",
+    "yeah",
+    "アミーゴ",
     "ウリィィィィィィィィ",
     "運命運命w",
     "お疲れ様〜☆",
     "カレー飲んだことある？",
-    "彼女いるの？",
     "祇園精舎の鐘の声\n諸行無常の響きあり\n",
-    "今度一緒に遊びに行こうよ！",
+    "今日もあっそぼー！"
+    "仕方ない",
+    "それもまた一興",
     "僕と契約して魔法少女にならないか？",
     "黙れ豆",
+    "だよね",
     "痴漢者トーマス",
     "どりん",
     "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘"
@@ -48,8 +52,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
 
   const messages_question = [
+    "うん",
+    "そうだね",
     "それアンダースタンド",
     "答えは2です",
+    "まあね",
     "わかんない",
     "俺に聞かれてもなー"
   ];
@@ -107,11 +114,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
          type: "text",
          text: `${event.message.text.substr(0, 4)}クエストの間違いでは？`
         }));
-      //} else if (event.message.text.match(/?/) || event.message.text.match(/？/)) {
-        //events_processed.push(bot.replyMessage(event.replyToken, {
-         //type: "text",
-         //text: message_question
-        //}));
+      } else if (event.message.text.match(/?/) || event.message.text.match(/？/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+         type: "text",
+         text: message_question
+        }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
