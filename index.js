@@ -26,6 +26,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "祇園精舎の鐘の声\n諸行無常の響きあり",
     "今日もあっそぼー！",
     "仕方ない",
+    "出会いと別れ、それが人生。",
     "それもまた一興",
     "僕と契約して魔法少女にならないか？",
     "黙れ豆",
