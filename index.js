@@ -24,7 +24,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "彼女いるの？",
     "祇園精舎の鐘の声\n諸行無常の響きあり\n",
     "今度一緒に遊びに行こうよ！",
-    "それなら僕と契約して魔法少女にならないか？",
+    "僕と契約して魔法少女にならないか？",
     "黙れ豆",
     "痴漢者トーマス",
     "どりん",
@@ -107,7 +107,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
          type: "text",
          text: `${event.message.text.substr(0, 4)}クエストの間違いでは？`
         }));
-      } else if (event.message.text.match(/?/)) || event.message.text.match(/？/)) {
+      } else if (event.message.text.match(/?/) || event.message.text.match(/？/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
          type: "text",
          text: message_question
