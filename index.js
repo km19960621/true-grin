@@ -16,6 +16,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   let events_processed = [];
 
   const messages = [
+    `${event.message.text.substr(0, 4)}クエストの間違いでは？`,
     "@bye",
     "yeah",
     "アミーゴ",
