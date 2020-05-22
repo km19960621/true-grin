@@ -14,16 +14,16 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   res.sendStatus(200);
 
   let events_processed = [];
-  
-  const messages = ["カレー飲んだことある？", "ほげ"];
+
+  const messages = ["あなたの会話相手という不毛な仕事ですが何か？", "カレー飲んだことある？", "ほげ"];
   const message = messages[Math.floor(Math.random() * messages.length)];
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
-      if (event.message.text == "こんにちは") {
+      if (event.message.text.match(/こんにちは/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
-          text: "これはこれは"
+          text: "ども"
         }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
