@@ -114,11 +114,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
          type: "text",
          text: `${event.message.text.substr(0, 4)}クエストの間違いでは？`
         }));
-      } else if (event.message.text.match(/？/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-         type: "text",
-         text: message_question
-        }));
+      //} else if (event.message.text.match(/?/) || event.message.text.match(/？/)) {
+        //events_processed.push(bot.replyMessage(event.replyToken, {
+         //type: "text",
+         //text: message_question
+        //}));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
