@@ -16,8 +16,24 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   let events_processed = [];
 
   const messages = [
-    "あなたの会話相手という不毛な仕事ですが何か？",
-    "男だぜ、僕は！", "カレー飲んだことある？",
+    "ありがとう",
+    "嫌です！",
+    "ウリィィィィィィィィ",
+    "男だぜ、僕は！",
+    "会話する気ある？",
+    "カレー飲んだことある？",
+    "かっこいい♪",
+    "彼女いるの？",
+    "可愛いよね",
+    "祇園精舎の鐘の声\n諸行無常の響きあり\n"
+    "気にすんな",
+    "今度一緒に遊びに行こうよ！",
+    "それなら僕と契約して魔法少女にならないか？",
+    "黙れ豆",
+    "痴漢者トーマス",
+    "でしょう？",
+    "テヘペロ",
+    "ホークス優勝したね！"
     "ほげ"
   ];
   const message = messages[Math.floor(Math.random() * messages.length)];
@@ -33,6 +49,16 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "いないよ"
+        }));
+      } else if (event.message.text.match(/知らない/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "これだから若いやつは"
+        }));
+      } else if (event.message.text.match(/何してる/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "生きる意味について考えてるよ！"
         }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
