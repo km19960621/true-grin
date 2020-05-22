@@ -14,7 +14,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   res.sendStatus(200);
 
   let events_processed = [];
-  const messages = ["yeah", "fuga"];
+  
+  const messages = ["カレー飲んだことある？", "ほげ"];
   const message = messages[Math.floor(Math.random() * messages.length)];
 
   req.body.events.forEach((event) => {
@@ -25,14 +26,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           text: "これはこれは"
         }));
       } else {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "カレー飲んだことある？"
-        }));
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "ほげ"
-        }));
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: message
