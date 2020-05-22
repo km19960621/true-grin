@@ -16,6 +16,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   let events_processed = [];
 
   const messages = [
+    "@bye",
     "ありがとう",
     "嫌です！",
     "ウリィィィィィィィィ",
@@ -52,7 +53,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           type: "text",
           text: "いないよ"
         }));
-      } else if (event.message.text.match(/知らない/)) {
+      } else if (event.message.text.match(/知らな/) || event.message.text.match(/知らん/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "これだから若いやつは"
@@ -61,6 +62,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "生きる意味について考えてるよ！"
+        }));
+      } else if (event.message.text.match(/バグ/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "仕様です"
         }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
