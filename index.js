@@ -14,6 +14,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   res.sendStatus(200);
 
   let events_processed = [];
+  const messages = ["yeah", "fuga"];
+  const message = messages[Math.floor(Math.random() * messages.length)];
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
@@ -30,6 +32,10 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "ほげ"
+        }));
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: message
         }));
       }
     }
