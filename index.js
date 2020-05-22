@@ -103,15 +103,15 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           text: "仕様です"
         }));
       } else if (event.message.text.length == 8) {
-       events_processed.push(bot.replyMessage(event.replyToken, {
+        events_processed.push(bot.replyMessage(event.replyToken, {
          type: "text",
          text: `${event.message.text.substr(0, 4)}クエストの間違いでは？`
-       }));
-     } else if (event.message.text.match(/?/)) || event.message.text.match(/？/)) {
-       events_processed.push(bot.replyMessage(event.replyToken, {
+        }));
+      } else if (event.message.text.match(/?/)) || event.message.text.match(/？/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
          type: "text",
          text: message_question
-       }));
+        }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
