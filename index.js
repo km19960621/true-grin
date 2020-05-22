@@ -13,12 +13,12 @@ const bot = new line.Client(line_config);
 server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   res.sendStatus(200);
 
-  let events_processd = [];
+  let events_processed = [];
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
       if (event.message.text == "こんにちは") {
-        evnet_processed.push(bot.replyMessage(evnet.replyToken, {
+        event_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "これはこれは"
         }));
@@ -26,9 +26,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     }
   });
 
-  Promise.all(events_processd).then(
+  Promise.all(events_processed).then(
     (response) => {
-      console.log(`${response.length} event(s) processed.`)
+      console.log(`${response.length} event(s) processed.`);
     }
   );
 });
