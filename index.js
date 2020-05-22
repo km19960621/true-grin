@@ -59,7 +59,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
 
   const messages_question = [
-    "うん",
     "そうだね",
     "それアンダースタンド",
     "答えは2です",
