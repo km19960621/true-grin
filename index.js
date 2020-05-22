@@ -20,7 +20,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
-      if (event.message.text.match(/こんにちは/)) {
+      if (event.message.text.match(/いる？/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "ども"
@@ -28,7 +28,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
-          text: message
+          text: message || niiii
         }));
       }
     }
