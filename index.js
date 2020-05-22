@@ -15,20 +15,24 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   let events_processed = [];
 
-  const messages = ["あなたの会話相手という不毛な仕事ですが何か？", "カレー飲んだことある？", "ほげ"];
+  const messages = [
+    "あなたの会話相手という不毛な仕事ですが何か？",
+    "男だぜ、僕は！", "カレー飲んだことある？",
+    "ほげ"
+  ];
   const message = messages[Math.floor(Math.random() * messages.length)];
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
-      if (event.message.text.match(/いる？/)) {
+      if (event.message.text == "@bye") {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: "効かん！"
+        }));
+      } else if (event.message.text.match(/いる？/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "いないよ"
-        }));
-      } else if (event.message.text.match(/彼氏いる？/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "男だぜ、僕は！"
         }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
@@ -36,7 +40,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           text: message
         }));
       }
-
     }
     if (event.type == "message" && event.message.type == "sticker") {
       events_processed.push(bot.replyMessage(event.replyToken, {
