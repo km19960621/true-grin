@@ -31,8 +31,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "それもまた一興",
     "たしかに",
     "黙れ豆",
-    "ダンカン、このヤロー",
-    "痴漢者トーマス",
     "千葉県の平和は僕が守る！",
     "猪突猛進！猪突猛進！",
     "日本の未来はWow Wow Wow Wow",
