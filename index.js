@@ -16,37 +16,36 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   let events_processed = [];
 
   const messages = [
-    `${event.message.text.substr(0, 4)}クエストの間違いでは？`,
     "@bye",
     "yeah",
     "アミーゴ",
     "ウリィィィィィィィィ",
     "運命運命w",
-    "ええ、そういう考え方もありますね",
+    "ええ〜、そういう考え方もありますねぇ",
     "お疲れ様〜☆",
     "会話にならないな",
     "カレー飲んだことある？",
-    "祇園精舎の鐘の声\n諸行無常の響きあり",
     "今日もあっそぼー！",
     "仕方ない",
-    "それな",
-    "たしかに",
-    "千葉県の平和は僕が守る！",
-    "出会いと別れ、それが人生。",
+    "人生とはねぇ..出会いと別れだよねぇ...",
     "それもまた一興",
+    "たしかに",
+    "黙れ豆",
+    "ダンカン、このヤロー",
+    "痴漢者トーマス",
+    "千葉県の平和は僕が守る！",
+    "猪突猛進！猪突猛進！",
+    "日本の未来はWow Wow Wow Wow",
+    "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘",
     "僕と契約して魔法少女にならないか？",
     "僕もそう思うにゃわん",
-    "黙れ豆",
-    "だよね",
-    "痴漢者トーマス",
-    "どりん",
-    "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘"
+    "勇気が世界の闇を照らし始める"
   ];
   const message = messages[Math.floor(Math.random() * messages.length)];
 
   const messages_thank = [
       "ありがとう",
-      "気にすんな",
+      "あんたに褒められても嬉しくないんだからね！///",
       "でしょ？",
       "テヘペロ"
   ];
@@ -64,7 +63,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "答えは2です",
     "まあね",
     "わかんない",
-    "俺に聞かれてもなー"
+    "僕に聞かれても困るよー"
   ];
   const message_question = messages_question[Math.floor(Math.random() * messages_question.length)];
 
@@ -119,7 +118,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else if (event.message.text.length == 8) {
         events_processed.push(bot.replyMessage(event.replyToken, {
          type: "text",
-         text: `${event.message.text.substr(0, 4)}クエストの間違いでは？`
+         text: `${event.message.text.substr(0, 4)}クエスト`
         }));
       } else if (event.message.text.match(/？/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
