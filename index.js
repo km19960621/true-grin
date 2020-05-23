@@ -28,11 +28,13 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "今日もあっそぼー！",
     "人生とはねぇ..出会いと別れだよねぇ...",
     "それもまた一興",
-    "たしかに",
+    "確かに",
     "黙れ豆",
     "千葉県の平和は僕が守る！",
     "猪突猛進！猪突猛進！",
     "日本の未来はWow Wow Wow Wow",
+    "バッチコイベイベー",
+    "不要不急のコメントは控えてください(>_<)"
     "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘",
     "僕と契約して魔法少女にならないか？",
     "僕もそう思うにゃわん",
@@ -50,12 +52,12 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   const messages_one = [
     "botなめてるでしょw",
-    "会話する気ある？"
+    "会話する気あるの〜？"
   ];
   const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
 
   const messages_question = [
-    "そうだね",
+    "あと3時間あればわかる",
     "それアンダースタンド",
     "答えは2です",
     "まあね",
