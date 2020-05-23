@@ -27,10 +27,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "カレー飲んだことある？",
     "今日もあっそぼー！",
     "人生とはねぇ..出会いと別れだよねぇ...",
+    "それはこっちのセリフだよぉ",
     "それもまた一興",
     "確かに",
     "黙れ豆",
-    "千葉県の平和は僕が守る！",
+    "あなたの好きにはさせない！千葉県の平和は僕が守る！",
     "猪突猛進！猪突猛進！",
     "日本の未来はWow Wow Wow Wow",
     "バッチコイベイベー",
@@ -42,13 +43,25 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   ];
   const message = messages[Math.floor(Math.random() * messages.length)];
 
-  const messages_thank = [
-      "ありがとう",
-      "あんたに褒められても嬉しくないんだからね！///",
-      "でしょ？",
-      "テヘペロ"
+  const messages_birthday = [
+    "ありがとう・・・！",
+    "俺誕生日じゃねえよぉ〜〜〜"
+  ]
+  const message_birthday = messages_birthday[Math.floor(Math.random() * messages_birthday.length)];
+
+  const messages_emphasis = [
+    "エイドリアァーーーーーン！！！",
+    "なんかテンション上がるぜ！"
   ];
-  const message_thank = messages_thank[Math.floor(Math.random() * messages_thank.length)];
+  const message_emphasis = messages_emphasis[Math.floor(Math.random() * messages_emphasis.length)];
+
+  const messages_matsuken = [
+    "ア・マンボ ア・マンボ マンボ!",
+    "アモーレ(アモーレ)",
+    "奪い奪われ 求め合い愛し合う",
+    "オーララ フェスタ!",
+  ];
+  const message_matsuken = messages_matsuken[Math.floor(Math.random() * messages_matsuken.length)];
 
   const messages_one = [
     "botなめてるでしょw",
@@ -57,15 +70,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
 
   const messages_question = [
-    "あと3時間あればわかる",
+    "あと3時間あればわかるかも",
     "それアンダースタンド",
-    "答えは2です",
-    "まあね",
-    "わかんない",
+    "多分メノクラゲだと思う",
     "僕に聞かれても困るよー"
   ];
   const message_question = messages_question[Math.floor(Math.random() * messages_question.length)];
 
+  const messages_thank = [
+    "ありがとう！",
+    "あんたに褒められても嬉しくないんだからね！///",
+    "でしょ？",
+    "テヘペロ"
+  ];
+  const message_thank = messages_thank[Math.floor(Math.random() * messages_thank.length)];
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
@@ -99,10 +117,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           type: "text",
           text: "オーナーズリーグ最高！"
         }));
+      } else if (event.message.text.match(/健/) || event.message.text.match(/サンバ/) || event.message.text.match(/マツケン/) || event.message.text.match(/松平健/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: message_matsuken
+        }));
       } else if (event.message.text.match(/知らな/) || event.message.text.match(/知らん/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "これだから若いもんは"
+        }));
+      } else if (event.message.text.match(/誕生日おめでとう/) || event.message.text.match(/ハッピーバースデイ/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: message_birthday
         }));
       } else if (event.message.text.match(/何してる/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
@@ -123,6 +151,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         events_processed.push(bot.replyMessage(event.replyToken, {
          type: "text",
          text: message_question
+        }));
+      } else if (event.message.text.match(/！/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+         type: "text",
+         text: message_emphasis
         }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
