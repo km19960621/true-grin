@@ -61,8 +61,14 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "フッ、笑っているがいいさ。笑っていられるのも今のうちだぜ！",
     "やっと笑ってくれたね、君のその笑顔が見たかったんだ",
     "笑う門には福来たる"
-  ]
+  ];
   const message_laugh = messages_laugh[Math.floor(Math.random() * messages_laugh.length)];
+
+  const messages_link = [
+    "URL貼っとけば見るだろうと思ってるでしょ？それは大間違いよ！",
+    "http://www.carddass.com/ownersleague/"
+  ];
+  const message_link = messages_link[Math.floor(Math.random() * messages_link.length)];
 
   const messages_matsuken = [
     "ア・マンボ ア・マンボ マンボ!",
@@ -110,6 +116,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "マツケンでGO!"
+        }));
+      } else if (event.message.text.match(/http/) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+          type: "text",
+          text: message_link
         }));
       } else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
