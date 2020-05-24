@@ -63,13 +63,13 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "笑う門には福来たる"
   ];
   const message_laugh = messages_laugh[Math.floor(Math.random() * messages_laugh.length)];
-/*
+
   const messages_link = [
     "URL貼っとけば見るだろうと思ってるでしょ？それは大間違いよ！",
     "http://www.carddass.com/ownersleague/"
   ];
   const message_link = messages_link[Math.floor(Math.random() * messages_link.length)];
-*/
+
   const messages_matsuken = [
     "ア・マンボ ア・マンボ マンボ!",
     "アモーレ(アモーレ)",
