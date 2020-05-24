@@ -45,15 +45,24 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   const messages_birthday = [
     "ありがとう・・・！",
-    "俺誕生日じゃねえよぉ〜〜〜"
+    "俺誕生日じゃねえよぉ〜〜〜",
+    "ちなみにウサイン・ボルトの誕生日は1986/8/21だよ"
   ]
   const message_birthday = messages_birthday[Math.floor(Math.random() * messages_birthday.length)];
 
   const messages_emphasis = [
     "エイドリアァーーーーーン！！！",
+    "おっと興奮しているようだな、こういう時こそCOOLにいこうぜ",
     "なんかテンション上がるぜ！"
   ];
   const message_emphasis = messages_emphasis[Math.floor(Math.random() * messages_emphasis.length)];
+
+  const messages_laugh = [
+    "フッ、笑っているがいいさ。笑っていられるのも今のうちだぜ！",
+    "やっと笑ってくれたね、君のその笑顔が見たかったんだ",
+    "笑う門には福来たる"
+  ]
+  const message_laugh = messages_laugh[Math.floor(Math.random() * messages_laugh.length)];
 
   const messages_matsuken = [
     "ア・マンボ ア・マンボ マンボ!",
@@ -64,6 +73,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   const message_matsuken = messages_matsuken[Math.floor(Math.random() * messages_matsuken.length)];
 
   const messages_one = [
+    `${event.message.text}${event.message.text}${event.message.text}${event.message.text}${event.message.text}`,
     "botなめてるでしょw",
     "会話する気あるの〜？"
   ];
@@ -127,7 +137,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           type: "text",
           text: "これだから若いもんは"
         }));
-      } else if (event.message.text.match(/誕生日おめでとう/) || event.message.text.match(/ハッピーバースデイ/)) {
+      } else if (event.message.text.match(/誕生日/) || event.message.text.match(/ハッピーバースデイ/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: message_birthday
@@ -156,6 +166,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         events_processed.push(bot.replyMessage(event.replyToken, {
          type: "text",
          text: message_emphasis
+        }));
+      } else if (event.message.text.match(/w/) || event.message.text.match(/草/) || event.message.text.match(/笑/)) {
+        events_processed.push(bot.replyMessage(event.replyToken, {
+         type: "text",
+         text: message_laugh
         }));
       } else {
         events_processed.push(bot.replyMessage(event.replyToken, {
