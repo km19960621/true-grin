@@ -73,7 +73,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   const message_matsuken = messages_matsuken[Math.floor(Math.random() * messages_matsuken.length)];
 
   const messages_one = [
-    `${event.message.text}${event.message.text}${event.message.text}${event.message.text}${event.message.text}`,
     "botなめてるでしょw",
     "会話する気あるの〜？"
   ];
