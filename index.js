@@ -122,7 +122,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           type: "text",
           text: message_link
         }));
-      */} else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
+      }*/ else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: message_thank
@@ -147,12 +147,12 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           type: "text",
           text: "これだから若いもんは"
         }));
-      } else if (event.message.text.match(/誕生日/) || event.message.text.match(/ハッピーバースデイ/)) {
+      } else if (event.message.text.match(/誕生日/) || event.message.text.match(/ハッピーバースデ/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: message_birthday
         }));
-      } else if (event.message.text.match(/何してる/)) {
+      } else if (event.message.text.match(/何して/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: "オーナーズリーグの整理整頓"
