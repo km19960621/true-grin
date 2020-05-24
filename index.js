@@ -117,12 +117,12 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
           type: "text",
           text: "マツケンでGO!"
         }));
-      }/* else if (event.message.text.match(/http/) {
+      } else if (event.message.text.match(/http/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: message_link
         }));
-      }*/ else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
+      } else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
           text: message_thank
