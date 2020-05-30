@@ -50,27 +50,27 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "俺誕生日じゃねえよぉ〜〜〜",
     "ちなみにウサイン・ボルトの誕生日は1986/8/21だよ"
   ]
-  const message_birthday = messages_birthday[Math.floor(Math.random() * messages_birthday.length)];
+  const message_birthday = message_rand(messages_birthday);
 
   const messages_emphasis = [
     "エイドリアァーーーーーン！！！",
     "おっと興奮しているようだな、こういう時こそCOOLにいこうぜ",
     "なんかテンション上がるぜ！"
   ];
-  const message_emphasis = messages_emphasis[Math.floor(Math.random() * messages_emphasis.length)];
+  const message_emphasis = message_rand(messages_emphasis);
 
   const messages_laugh = [
     "フッ、笑っているがいいさ。笑っていられるのも今のうちだぜ！",
     "やっと笑ってくれたね、君のその笑顔が見たかったんだ",
     "笑う門には福来たる"
   ];
-  const message_laugh = messages_laugh[Math.floor(Math.random() * messages_laugh.length)];
+  const message_laugh = message_rand(messages_laugh);
 
   const messages_link = [
     "URL貼っとけば見るだろうと思ってるでしょ？それは大間違いよ！",
     "http://www.carddass.com/ownersleague/"
   ];
-  const message_link = messages_link[Math.floor(Math.random() * messages_link.length)];
+  const message_link = message_rand(messages_link);
 
   const messages_matsuken = [
     "ア・マンボ ア・マンボ マンボ!",
@@ -78,20 +78,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "奪い奪われ 求め合い愛し合う",
     "オーララ フェスタ!",
   ];
-  const message_matsuken = messages_matsuken[Math.floor(Math.random() * messages_matsuken.length)];
+  const message_matsuken = message_rand(messages_matsuken);
 
   const messages_one = [
     "botなめてるでしょw",
     "会話する気あるの〜？"
   ];
-  const message_one = messages_one[Math.floor(Math.random() * messages_one.length)];
+  const message_one = message_rand(messages_one);
 
   const messages_question = [
     "あと3時間あればわかるかも",
     "多分メノクラゲだと思う",
     "僕に聞かれても困るよー"
   ];
-  const message_question = messages_question[Math.floor(Math.random() * messages_question.length)];
+  const message_question = message_rand(messages_question);
 
   const messages_thank = [
     "ありがとう！",
@@ -99,7 +99,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "でしょ？",
     "テヘペロ"
   ];
-  const message_thank = messages_thank[Math.floor(Math.random() * messages_thank.length)];
+  const message_thank = message_rand(messages_thank);
 
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
