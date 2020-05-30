@@ -21,9 +21,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     };
 
     const messages = [
+      `${event.message.text}${event.message.text}${event.message.text}${event.message.text}${event.message.text}`,
       `${event.message.text.substr(0, 2)}市`,
       `${event.message.text.substr(0, 4)}クエスト${Math.floor(Math.random() * 11)}`,
       "@bye",
+      "Hey you, let/'s grin with me!",
       "UREEYYY",
       "運命運命w",
       "お疲れ様〜☆",
@@ -78,7 +80,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_matsuken = message_rand(messages_matsuken);
 
     const messages_one = [
-      `${event.message.text}${event.message.text}${event.message.text}${event.message.text}${event.message.text}`,
+      `${event.message.text}${event.message.text}${event.message.text}`,
       "botなめてるでしょw",
       "会話する気あるの〜？"
     ];
