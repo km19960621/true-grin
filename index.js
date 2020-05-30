@@ -21,6 +21,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     };
 
     const messages = [
+      `${event.message.text.chartAt(0)}市`,
       `${event.message.text}ろうぜ`,
       "@bye",
       "yeah",
@@ -84,6 +85,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_matsuken = message_rand(messages_matsuken);
 
     const messages_one = [
+      `${event.message.text}${event.message.text}${event.message.text}${event.message.text}${event.message.text}`,
       "botなめてるでしょw",
       "会話する気あるの〜？"
     ];
@@ -93,7 +95,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       `${event.message.text}と言われましてもねえ`,
       "あと3時間あればわかるかも",
       "多分メノクラゲだと思う",
-      "僕に聞かれても困るよー"
+      "僕に聞かれても困るよ~~~"
     ];
     const message_question = message_rand(messages_question);
 
