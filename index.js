@@ -45,7 +45,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const messages_birthday = [
       "ありがとう・・・！",
       "俺誕生日じゃねえよぉ〜〜〜",
-      "ちなみにウサイン・ボルトの誕生日は1986/8/21だよ"
+      "ちなみにウサイン・ボルトの誕生日は1986/8/21"
     ]
     const message_birthday = message_rand(messages_birthday);
 
@@ -86,7 +86,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_one = message_rand(messages_one);
 
     const messages_question = [
-      `${event.message.text.replace("？", "( ՞ਊ ՞）→")}`
+      `${event.message.text.replace("？", "( ՞ਊ ՞）→")}`,
       `${event.message.text}と言われましてもねえ`,
       "あと3時間あればわかるかも",
       "多分メノクラゲだと思う",
