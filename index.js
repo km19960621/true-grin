@@ -102,14 +102,14 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   const message_thank = message_rand(messages_thank);
 
   req.body.events.forEach((event) => {
+    let text_reply = (content) => {
+      events_processed.push(bot.replyMessage(event.replyToken, {
+        type: "text",
+        text: content
+      }));
+    };
+    
     if (event.type == "message" && event.message.type == "text") {
-      let text_reply = (content) => {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: content
-        }));
-      };
-      
       if (event.message.text.length == 1) {
         text_reply(message_one);
       } else if (event.message.text == "@bye") {
