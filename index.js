@@ -21,7 +21,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     };
 
     const messages = [
-      `${event.message.text.chartAt(0)}市`,
+      //`${event.message.text.chartAt(0)}市`,
       `${event.message.text}ろうぜ`,
       "@bye",
       "yeah",
