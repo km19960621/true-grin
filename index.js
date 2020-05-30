@@ -21,7 +21,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     };
 
     const messages = [
-      `${event.message.text.charAt(0)}市`,
+      `${event.message.text.substr(0, 2)}市`,
       `${event.message.text.substr(0, 4)}クエストろうぜ`,
       "@bye",
       "UREEYYY",
