@@ -22,7 +22,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
     const messages = [
       `${event.message.text.substr(0, 2)}市`,
-      `${event.message.text.substr(0, 4)}クエストろうぜ`,
+      `${event.message.text.substr(0, 4)}クエスト${Math.floor(Math.random() * 11)}`,
       "@bye",
       "UREEYYY",
       "運命運命w",
@@ -31,7 +31,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "カレー飲んだことある？",
       "今日もあっそぼー！",
       "人生とはねぇ..出会いと別れだよねぇ...",
-      "それはこっちのセリフだよぉ",
       "それもまた一興",
       "たーしかに",
       "黙れ豆",
