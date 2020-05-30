@@ -21,6 +21,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     };
 
     const messages = [
+      `${event.message.text}ろうぜ`,
       "@bye",
       "yeah",
       "アミーゴ",
@@ -54,6 +55,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_birthday = message_rand(messages_birthday);
 
     const messages_emphasis = [
+      `${event.message.text}！、${event.message.text}！！`,
       "エイドリアァーーーーーン！！！",
       "おっと興奮しているようだな、こういう時こそCOOLにいこうぜ",
       "なんかテンション上がるぜ！"
@@ -114,91 +116,38 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       if (event.message.text.length == 1) {
         text_reply(message_one);
       } else if (event.message.text == "@bye") {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "効かん！"
-        }));
+        text_reply("効かん！");
       } else if (event.message.text.match(/GO/) || event.message.text.match(/行け/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "マツケンでGO!"
-        }));
+        text_reply("マツケンでGO!");
       } else if (event.message.text.match(/http/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: message_link
-        }));
+        text_reply(message_link);
       } else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: message_thank
-        }));
+        text_reply(message_thank);
       } else if (event.message.text.match(/いる？/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "いないよ"
-        }));
+        text_reply("いないよ");
       } else if (event.message.text.match(/オーナーズリーグ/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "オーナーズリーグ最高！"
-        }));
+        text_reply("オーナーズリーグ最高");
       } else if (event.message.text.match(/健/) || event.message.text.match(/サンバ/) || event.message.text.match(/マツケン/) || event.message.text.match(/松平健/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: message_matsuken
-        }));
+        text_reply(message_matsuken);
       } else if (event.message.text.match(/知らな/) || event.message.text.match(/知らん/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "これだから若いもんは"
-        }));
+        text_reply("これだから最近の若いもんは");
       } else if (event.message.text.match(/誕生日/) || event.message.text.match(/ハッピーバースデ/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: message_birthday
-        }));
+        text_reply(message_birthday);
       } else if (event.message.text.match(/何して/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "オーナーズリーグの整理整頓"
-        }));
+        text_reply("㊙︎");
       } else if (event.message.text.match(/バグ/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: "仕様です"
-        }));
-      } else if (event.message.text.length == 8) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-         type: "text",
-         text: `${event.message.text.substr(0, 4)}クエスト`
-        }));
+        text_reply("仕様です");
       } else if (event.message.text.match(/？/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-         type: "text",
-         text: message_question
-        }));
+        text_reply(message_question);
       } else if (event.message.text.match(/！/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-         type: "text",
-         text: message_emphasis
-        }));
+        text_reply(message_emphasis);
       } else if (event.message.text.match(/w/) || event.message.text.match(/草/) || event.message.text.match(/笑/)) {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-         type: "text",
-         text: message_laugh
-        }));
+        text_reply(message_laugh);
       } else {
-        events_processed.push(bot.replyMessage(event.replyToken, {
-          type: "text",
-          text: message
-        }));
+        text_reply(message);
       }
     } else if (event.type == "message" && event.message.type == "sticker") {
-      events_processed.push(bot.replyMessage(event.replyToken, {
-        type: "text",
-        text: "ああ、スタンプで会話終わらそうとするあれね"
-      }));
+      text_reply("ああ、スタンプで会話終わらそうとするあれね");
     }
   });
 
