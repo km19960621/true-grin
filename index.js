@@ -15,13 +15,16 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   let events_processed = [];
 
+  let message_rand = (content) => {
+    return content[Math.floor(Math.random() * content.length)];
+  };
+
   const messages = [
     "@bye",
     "yeah",
     "アミーゴ",
     "ウリィィィィィィィィ",
     "運命運命w",
-    "ええ〜、そういう考え方もありますねぇ",
     "お疲れ様〜☆",
     "会話になってないよ〜",
     "カレー飲んだことある？",
@@ -32,7 +35,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "確かに",
     "黙れ豆",
     "あなたの好きにはさせない！千葉県の平和は僕が守る！",
-    "猪突猛進！猪突猛進！",
     "日本の未来はWow Wow Wow Wow",
     "バッチコイベイベー",
     "不要不急のコメントは控えてください(>_<)",
@@ -41,7 +43,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     "僕もそう思うにゃわん",
     "勇気が世界の闇を照らし始める"
   ];
-  const message = messages[Math.floor(Math.random() * messages.length)];
+  const message = message_rand(messages);
 
   const messages_birthday = [
     "ありがとう・・・！",
@@ -86,7 +88,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
   const messages_question = [
     "あと3時間あればわかるかも",
-    "それアンダースタンド",
     "多分メノクラゲだと思う",
     "僕に聞かれても困るよー"
   ];
