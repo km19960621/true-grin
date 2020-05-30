@@ -88,6 +88,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_one = message_rand(messages_one);
 
     const messages_question = [
+      `${event.message.text}と言われましてもねえ`,
       "あと3時間あればわかるかも",
       "多分メノクラゲだと思う",
       "僕に聞かれても困るよー"
@@ -101,7 +102,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "テヘペロ"
     ];
     const message_thank = message_rand(messages_thank);
-    
+
     let text_reply = (content) => {
       events_processed.push(bot.replyMessage(event.replyToken, {
         type: "text",
