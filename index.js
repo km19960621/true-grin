@@ -21,14 +21,15 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     };
 
     const messages = [
-      //`${event.message.text.chartAt(0)}市`,
+      `${event.message.text.charAt(0)}市`,
       `${event.message.text}ろうぜ`,
       "@bye",
+      "UREEYYY",
       "yeah",
       "アミーゴ",
-      "ウリィィィィィィィィ",
       "運命運命w",
       "お疲れ様〜☆",
+      "男には死ぬと分かっていても戦わなければならない時がある。それが今だ。",
       "会話になってないよ〜",
       "カレー飲んだことある？",
       "今日もあっそぼー！",
@@ -37,14 +38,10 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "それもまた一興",
       "確かに",
       "黙れ豆",
-      "あなたの好きにはさせない！千葉県の平和は僕が守る！",
-      "日本の未来はWow Wow Wow Wow",
-      "バッチコイベイベー",
+      "バッチコイベイベー！",
       "不要不急のコメントは控えてください(>_<)",
       "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘",
-      "僕と契約して魔法少女にならないか？",
-      "僕もそう思うにゃわん",
-      "勇気が世界の闇を照らし始める"
+      "ぼくもそうおもうニャワン"
     ];
     const message = message_rand(messages);
 
