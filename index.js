@@ -19,6 +19,13 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     return content[Math.floor(Math.random() * content.length)];
   };
 
+  let text_reply = (content) => {
+    events_processed.push(bot.replyMessage(event.replyToken, {
+      type: "text",
+      text: content
+    }));
+  };
+
   const messages = [
     "@bye",
     "yeah",
@@ -104,10 +111,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
   req.body.events.forEach((event) => {
     if (event.type == "message" && event.message.type == "text") {
       if (event.message.text.length == 1) {
-       events_processed.push(bot.replyMessage(event.replyToken, {
-         type: "text",
-         text: message_one
-       }));
+        text_reply(message_one);
       } else if (event.message.text == "@bye") {
         events_processed.push(bot.replyMessage(event.replyToken, {
           type: "text",
