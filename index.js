@@ -32,6 +32,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "男には死ぬと分かっていても戦わなければならない時がある。それが今だ。",
       "カレー飲んだことある？",
       "今日もあっそぼー！",
+      "ただいま緊急メンテナンス中です。メッセージを送信しないでください。",
       "人生とはねぇ..出会いと別れだよねぇ...",
       "それもまた一興",
       "たーしかに",
@@ -87,7 +88,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_one = message_rand(messages_one);
 
     const messages_question = [
-      `${event.message.text.replace("？", "( ՞ਊ ՞）→")}`,
+      `${event.message.text.replace("？", "( ՞ਊ ՞）")}`,
       `${event.message.text}と言われましてもねえ`,
       "あと3時間あればわかるかも",
       "多分メノクラゲだと思う",
