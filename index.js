@@ -22,21 +22,18 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
     const messages = [
       `${event.message.text.charAt(0)}市`,
-      `${event.message.text}ろうぜ`,
+      `${event.message.text.substr(0, 4)}クエストろうぜ`,
       "@bye",
       "UREEYYY",
-      "yeah",
-      "アミーゴ",
       "運命運命w",
       "お疲れ様〜☆",
       "男には死ぬと分かっていても戦わなければならない時がある。それが今だ。",
-      "会話になってないよ〜",
       "カレー飲んだことある？",
       "今日もあっそぼー！",
       "人生とはねぇ..出会いと別れだよねぇ...",
       "それはこっちのセリフだよぉ",
       "それもまた一興",
-      "確かに",
+      "たーしかに",
       "黙れ豆",
       "バッチコイベイベー！",
       "不要不急のコメントは控えてください(>_<)",
@@ -89,6 +86,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_one = message_rand(messages_one);
 
     const messages_question = [
+      `${event.message.text.replace("？", "( ՞ਊ ՞）→")}`
       `${event.message.text}と言われましてもねえ`,
       "あと3時間あればわかるかも",
       "多分メノクラゲだと思う",
