@@ -22,9 +22,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
     const messages = [
       `${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}`,
-      `新機能・文字数カウンター発動！\n先ほどのメッセージの文字数は・・・\n${event.message.text.length}文字です・・・！`,
       `${event.message.text.substr(0, 2)}市`,
       `${event.message.text.substr(0, 4)}クエスト${Math.floor(Math.random() * 11)}`,
+      `新機能・文字数カウンター発動！\n先ほどのメッセージの文字数は・・・\n${event.message.text.length}文字です・・・！`,
       "┌(┌^o^)┐",
       "@bye",
       "Hey you, let\'s grin with me!",
@@ -36,6 +36,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "カレー飲んだことある？",
       "艱難辛苦っ・・・・・！",
       "今日もあっそぼー！",
+      "それは論点のすり替えだ",
       "ただいま緊急メンテナンス中です。メッセージを送信しないでください。",
       "人生とはねぇ..出会いと別れだよねぇ...",
       "それもまた一興",
@@ -56,7 +57,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_birthday = message_rand(messages_birthday);
 
     const messages_emphasis = [
-      `${event.message.text}！、${event.message.text}！！`,
+      `${event.message.text}、${event.message.text}！`,
       "エイドリアァーーーーーン！！！",
       "おっと興奮しているようだな、こういう時こそCOOLにいこうぜ",
       "なんかテンション上がるぜ！"
@@ -64,9 +65,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_emphasis = message_rand(messages_emphasis);
 
     const messages_laugh = [
-      "フッ、笑っているがいいさ。笑っていられるのも今のうちだぜ！",
       "やっと笑ってくれたね、君のその笑顔が見たかったんだ",
-      "笑う門には福来たる"
+      "笑う門には福来たる",
+      "笑っていられるのも今のうちだぜ"
     ];
     const message_laugh = message_rand(messages_laugh);
 
@@ -95,6 +96,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       `${event.message.text.replace("？", "( ՞ਊ ՞）")}`,
       `${event.message.text}と言われましてもねえ`,
       "あと3時間あればわかるかも",
+      "答えは風の中さ・・・",
       "多分メノクラゲだと思う",
       "僕に聞かれても困るよ~~~"
     ];
@@ -130,7 +132,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text_reply("いないよ");
       } else if (event.message.text.match(/オーナーズリーグ/)) {
         text_reply("オーナーズリーグ最高");
-      } else if (event.message.text.match(/健/) || event.message.text.match(/サンバ/) || event.message.text.match(/マツケン/) || event.message.text.match(/松平健/)) {
+      } else if (event.message.text.match(/健/) || event.message.text.match(/サンバ/) || event.message.text.match(/マツケン/) || event.message.text.match(/松平/)) {
         text_reply(message_matsuken);
       } else if (event.message.text.match(/知らな/) || event.message.text.match(/知らん/)) {
         text_reply("これだから最近の若いもんは");
