@@ -94,7 +94,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_one = message_rand(messages_one);
 
     const messages_question = [
-      `${event.message.text.replace("？", "( ՞ਊ ՞）")}`,
+      `${event.message.text.replace("？", "ლ(^o^ლ)")}`,
       `${event.message.text}と言われましてもねえ`,
       "あと3時間あればわかるかも",
       "答えは風の中さ・・・",
@@ -103,8 +103,15 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     ];
     const message_question = message_rand(messages_question);
 
+    const messages_stamp = [
+      "༼;´༎ຶ ۝ ༎ຶ༽",
+      "ああ、スタンプで会話終わらせようとするアレね",
+      "言葉にしないと伝わらない思いもあると思うぜ"
+    ];
+    const message_stamp = message_rand(messages_stamp);
+
     const messages_thank = [
-      "ありがとう！",
+      "ありがとう",
       "あんたに褒められても嬉しくないんだからね！///",
       "でしょ？",
       "テヘペロ"
@@ -117,8 +124,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text: content
       }));
     };
-
-    //let sticker_rand = Math.floor(Math.random() * (51626533 - 51626494) + 51626494);
 
     if (event.type == "message" && event.message.type == "text") {
       if (event.message.text.length == 1) {
@@ -155,11 +160,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text_reply(message);
       }
     } else if (event.type == "message" && event.message.type == "sticker") {
-      events_processed.push(bot.replyMessage(event.replyToken, {
-        type: "sticker",
-        packageId: 11538,
-        stickerId: Math.floor(Math.random() * (51626533 - 51626494) + 51626494)
-      }));
+      text_reply(message_stamp);
     }
   });
 
