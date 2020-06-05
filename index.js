@@ -36,12 +36,13 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "カレー飲んだことある？",
       "艱難辛苦っ・・・・・！",
       "今日もあっそぼー！",
-      "それは論点のすり替えだ",
-      "ただいま緊急メンテナンス中です。メッセージを送信しないでください。",
       "人生とはねぇ..出会いと別れだよねぇ...",
+      "それは論点のすり替えだ",
       "それもまた一興",
       "たーしかに",
+      "ただいま緊急メンテナンス中です。メッセージを送信しないでください。",
       "黙れ豆",
+      "時は金なり",
       "バッチコイベイベー！",
       "不要不急のコメントは控えてください(>_<)",
       "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘",
@@ -117,7 +118,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       }));
     };
 
-    let sticker_rand = Math.floor(Math.random() * (51626533 - 51626494) + 51626494);
+    //let sticker_rand = Math.floor(Math.random() * (51626533 - 51626494) + 51626494);
 
     if (event.type == "message" && event.message.type == "text") {
       if (event.message.text.length == 1) {
@@ -157,7 +158,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       events_processed.push(bot.replyMessage(event.replyToken, {
         type: "sticker",
         packageId: 11538,
-        stickerId: sticker_rand
+        stickerId: Math.floor(Math.random() * (51626533 - 51626494) + 51626494)
       }));
     }
   });
