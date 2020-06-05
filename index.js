@@ -117,7 +117,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       }));
     };
 
-    let sticker_rand = Math.floor(Math.random() * (51626494 - 51626533) + 51626533);
+    let sticker_rand = Math.floor(Math.random() * (51626533 - 51626494) + 51626494);
 
     if (event.type == "message" && event.message.type == "text") {
       if (event.message.text.length == 1) {
