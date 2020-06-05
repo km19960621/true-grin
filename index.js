@@ -156,7 +156,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     } else if (event.type == "message" && event.message.type == "sticker") {
       events_processed.push(bot.replyMessage(event.replyToken, {
         type: "sticker",
-        packageId: 11538,
+        packageId: "11538",
         stickerId: sticker_rand
       }));
     }
