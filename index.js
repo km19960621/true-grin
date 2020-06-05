@@ -117,6 +117,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       }));
     };
 
+    let sticker_rand = Math.floor(Math.random() * (51626494 - 51626533) + 51626533);
+
     if (event.type == "message" && event.message.type == "text") {
       if (event.message.text.length == 1) {
         text_reply(message_one);
@@ -131,7 +133,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else if (event.message.text.match(/いる？/)) {
         text_reply("いないよ");
       } else if (event.message.text.match(/オーナーズリーグ/)) {
-        text_reply("オーナーズリーグ最高");
+        text_reply("オーナーズリーグは神");
       } else if (event.message.text.match(/健/) || event.message.text.match(/サンバ/) || event.message.text.match(/マツケン/) || event.message.text.match(/松平/)) {
         text_reply(message_matsuken);
       } else if (event.message.text.match(/知らな/) || event.message.text.match(/知らん/)) {
@@ -152,7 +154,11 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text_reply(message);
       }
     } else if (event.type == "message" && event.message.type == "sticker") {
-      text_reply("ああ、スタンプで会話終わらそうとするあれね");
+      events_processed.push(bot.replyMessage(event.replyToken, {
+        type: "sticker",
+        packageId: 11538,
+        stickerId: sticker_rand
+      }));
     }
   });
 
