@@ -95,7 +95,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
     const messages_question = [
       `${event.message.text.replace("？", "ლ(^o^ლ)")}`,
-      `「${event.message.text.replace("？", "")}」ですか。ええ、現段階で明らかなこと、それはあなたが「${event.message.text}」と問うていることそれ自体なんです。`,
+      `「${event.message.text}」ですか。ええ、現段階で明らかなこと、それはあなたが「${event.message.text}」と問うていることそれ自体なんです。`,
       "あと3時間考えればわかるかも",
       "答えは風の中さ・・・"
     ];
