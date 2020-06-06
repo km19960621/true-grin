@@ -150,7 +150,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text_reply("㊙︎");
       } else if (event.message.text.match(/バグ/)) {
         text_reply("仕様です");
-      } else if (event.message.text.match(/？/)) {
+      } else if (event.message.text.match(/.*？$/)) {
         text_reply(message_question);
       } else if (event.message.text.match(/！/)) {
         text_reply(message_emphasis);
