@@ -37,6 +37,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "艱難辛苦っ・・・・・！",
       "今日もあっそぼー！",
       "人生とはねぇ..出会いと別れだよねぇ...",
+      "それは違うと思う、だからこそ私はそれは違うと思います。",
       "それは論点のすり替えだ",
       "それもまた一興",
       "たーしかに",
@@ -66,7 +67,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_emphasis = message_rand(messages_emphasis);
 
     const messages_laugh = [
-      "やっと笑ってくれたね、君のその笑顔が見たかったんだ",
+      "いい笑顔だ",
       "笑う門には福来たる",
       "笑っていられるのも今のうちだぜ"
     ];
@@ -96,20 +97,20 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const messages_question = [
       `${event.message.text.replace("？", "ლ(^o^ლ)")}`,
       `${event.message.text}と言われましてもねえ`,
-      `今し方「${event.message.text}」と尋ねられましたが、この状況で一つ確かに言えることは「${event.message.text}」と問われているということです。`,
+      `「${event.message.text}」という問を踏まえて確かに一つ言えること、それは「${event.message.text}」と問われていることです。`,
       "あと3時間あればわかるかも",
       "答えは風の中さ・・・",
       "僕に聞かれても困るよ~~~"
     ];
     const message_question = message_rand(messages_question);
 
-    const messages_stamp = [
+    /*const messages_stamp = [
       "༼;´༎ຶ ۝ ༎ຶ༽",
       "ああ、スタンプで会話終わらせようとするアレね",
       "言葉にしないと伝わらない思いもあると思うぜ"
     ];
     const message_stamp = message_rand(messages_stamp);
-
+*/
     const messages_thank = [
       "ありがとう",
       "あんたに褒められても嬉しくないんだからね！///",
@@ -159,9 +160,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else {
         text_reply(message);
       }
-    } else if (event.type == "message" && event.message.type == "sticker") {
+    }/* else if (event.type == "message" && event.message.type == "sticker") {
       text_reply(message_stamp);
-    }
+    */}
   });
 
   Promise.all(events_processed).then(
