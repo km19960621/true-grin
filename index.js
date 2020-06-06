@@ -24,7 +24,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       `${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}`,
       `${event.message.text.substr(0, 2)}市`,
       `${event.message.text.substr(0, 4)}クエスト${Math.floor(Math.random() * 11)}`,
-      `新機能・文字数カウンター発動！\n先ほどのメッセージの文字数は・・・\n${event.message.text.length}文字です・・・！`,
+      `新機能・文字数カウンター発動！\n先ほどのメッセージの文字数は${event.message.text.length}文字です・・・！`,
       "┌(┌^o^)┐",
       "@bye",
       "Hey you, let\'s grin with me!",
@@ -74,7 +74,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_laugh = message_rand(messages_laugh);
 
     const messages_link = [
-      "URL貼っとけば見るだろうと思ってるでしょ？それは大間違いよ！",
+      "URL 貼っても見るとは 限らない",
       "http://www.carddass.com/ownersleague/"
     ];
     const message_link = message_rand(messages_link);
@@ -162,7 +162,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       }
     }/* else if (event.type == "message" && event.message.type == "sticker") {
       text_reply(message_stamp);
-    */}
+    }*/
   });
 
   Promise.all(events_processed).then(
