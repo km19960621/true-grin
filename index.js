@@ -37,7 +37,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "艱難辛苦っ・・・・・！",
       "今日もあっそぼー！",
       "人生とはねぇ..出会いと別れだよねぇ...",
-      "それは違うと思う、だからこそ私はそれは違うと思います。",
+      "そういう考え方もあると思う。だからこそ私はそういう考え方もあるのではないかと思います。",
       "それは論点のすり替えだ",
       "それもまた一興",
       "たーしかに",
@@ -97,7 +97,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const messages_question = [
       `${event.message.text.replace("？", "ლ(^o^ლ)")}`,
       `${event.message.text}と言われましてもねえ`,
-      `「${event.message.text}」という問を踏まえて確かに一つ言えること、それは「${event.message.text}」と問われていることです。`,
+      `「${event.message.text}」と尋ねられましたが、一つ確かに言えることは「${event.message.text}」という問いを投げかけられていることです。`,
       "あと3時間あればわかるかも",
       "答えは風の中さ・・・",
       "僕に聞かれても困るよ~~~"
