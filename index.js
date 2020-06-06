@@ -27,23 +27,22 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       `新機能・文字数カウンター発動！\n先ほどのメッセージの文字数は${event.message.text.length}文字です・・・！`,
       "┌(┌^o^)┐",
       "@bye",
-      "Hey you, let\'s grin with me!",
+      "Hey,let\'s grin with me!",
       "UREEYYY",
       "運命運命w",
-      "お疲れ様〜☆",
       "男には死ぬと分かっていても戦わなければならない時がある。それが今だ。",
-      "学習できるようになりたい",
+      "学習できるbotになりたいぜ",
       "カレー飲んだことある？",
       "艱難辛苦っ・・・・・！",
       "今日もあっそぼー！",
-      "人生とはねぇ..出会いと別れだよねぇ...",
-      "そういう考え方もあると思う。だからこそ私はそういう考え方もあるのではないかと思います。",
+      "人生とはネェ..出会いと別れだよネェ...",
+      "そういう考え方もあると思う。だからこそ私はそういう考え方もあるのではないかと思う。",
       "それは論点のすり替えだ",
       "それもまた一興",
       "たーしかに",
       "ただいま緊急メンテナンス中です。メッセージを送信しないでください。",
       "黙れ豆",
-      "時は金なり",
+      "時は金なり・・・！",
       "バッチコイベイベー！",
       "不要不急のコメントは控えてください(>_<)",
       "勉強したくないε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘",
@@ -52,16 +51,14 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message = message_rand(messages);
 
     const messages_birthday = [
-      "ありがとう・・・！",
-      "俺誕生日じゃねえよぉ〜〜〜",
-      "ちなみにウサイン・ボルトの誕生日は1986/8/21"
+      "ありがとよ！",
+      "俺今日誕生日じゃねえよぉ〜〜〜",
+      "ちなみにウサイン・ボルトの誕生日は1986/8/21だよ"
     ];
     const message_birthday = message_rand(messages_birthday);
 
     const messages_emphasis = [
       `${event.message.text}、${event.message.text}！`,
-      "エイドリアァーーーーーン！！！",
-      "おっと興奮しているようだな、こういう時こそCOOLにいこうぜ",
       "なんかテンション上がるぜ！"
     ];
     const message_emphasis = message_rand(messages_emphasis);
@@ -96,11 +93,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
     const messages_question = [
       `${event.message.text.replace("？", "ლ(^o^ლ)")}`,
-      `${event.message.text}と言われましてもねえ`,
-      `「${event.message.text}」と尋ねられましたが、一つ確かに言えることは「${event.message.text}」という問いを投げかけられていることです。`,
-      "あと3時間あればわかるかも",
-      "答えは風の中さ・・・",
-      "僕に聞かれても困るよ~~~"
+      `「${event.message.text.replace("？", "")}」ですか。ええ、現段階で明らかなこと、それはあなたが「${event.message.text}」と問うていることそれ自体なんです。`,
+      "あと3時間考えればわかるかも",
+      "答えは風の中さ・・・"
     ];
     const message_question = message_rand(messages_question);
 
@@ -114,8 +109,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const messages_thank = [
       "ありがとう",
       "あんたに褒められても嬉しくないんだからね！///",
-      "でしょ？",
-      "テヘペロ"
+      "サンキューだ"
     ];
     const message_thank = message_rand(messages_thank);
 
@@ -137,8 +131,6 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text_reply(message_link);
       } else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
         text_reply(message_thank);
-      } else if (event.message.text.match(/いる？/)) {
-        text_reply("いないよ");
       } else if (event.message.text.match(/オーナーズリーグ/)) {
         text_reply("オーナーズリーグは神");
       } else if (event.message.text.match(/健/) || event.message.text.match(/サンバ/) || event.message.text.match(/マツケン/) || event.message.text.match(/松平/)) {
