@@ -136,7 +136,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text_reply("オーナーズリーグは神");
       } else if (event.message.text.match(/健/) || event.message.text.match(/サンバ/) || event.message.text.match(/マツケン/) || event.message.text.match(/松平/)) {
         text_reply(message_matsuken);
-      } else if (event.message.text.match(/邪魔/)) {
+      } else if (event.message.text.match(/邪魔/) || event.message.text.match(/じゃま/)) {
         text_reply("僕のリプライが邪魔だと？フフ、本当に邪魔なのはどっちなのか今から思い知らせてやるぜ");
       } else if (event.message.text.match(/知らな/) || event.message.text.match(/知らん/)) {
         text_reply("これだから最近の若いもんは");
