@@ -96,7 +96,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const messages_question = [
       `${event.message.text.replace("？", "ლ(^o^ლ)")}`,
       `${event.message.text}と言われましてもねえ`,
-      `今し方「${event.message.text}」という質問を受けましたが、ここで一つ、確かに言えることは「${event.message.text}」と問われているということです。`,
+      `今し方「${event.message.text}」と尋ねられましたが、この状況で一つ確かに言えることは「${event.message.text}」と問われているということです。`,
       "あと3時間あればわかるかも",
       "答えは風の中さ・・・",
       "僕に聞かれても困るよ~~~"
@@ -159,7 +159,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else {
         text_reply(message);
       }
-    } else if (event.type == "message" && event.message.type == "sticker") {
+    } else {//if (event.type == "message" && event.message.type == "sticker") {
       text_reply("ああ、スタンプで会話終わらそうとするあれね");
     }
   });
