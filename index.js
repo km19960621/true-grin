@@ -53,8 +53,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
     const messages_birthday = [
       "ありがとよ！",
+      "ウサイン・ボルト氏の誕生日？それなら1986/8/21だよ",
       "俺今日誕生日じゃねえよぉ〜〜〜",
-      "ちなみにウサイン・ボルトの誕生日は1986/8/21だよ"
+      "誕生日おめでとう、長生きしてね"
     ];
     const message_birthday = message_rand(messages_birthday);
 
