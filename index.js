@@ -159,7 +159,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else {
         text_reply(message);
       }
-    } else {//if (event.type == "message" && event.message.type == "sticker") {
+    }
+    if (event.type == "message" && event.message.type == "sticker") {
       text_reply("ああ、スタンプで会話終わらそうとするあれね");
     }
   });
