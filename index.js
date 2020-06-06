@@ -54,7 +54,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "ありがとう・・・！",
       "俺誕生日じゃねえよぉ〜〜〜",
       "ちなみにウサイン・ボルトの誕生日は1986/8/21"
-    ]
+    ];
     const message_birthday = message_rand(messages_birthday);
 
     const messages_emphasis = [
@@ -159,9 +159,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else {
         text_reply(message);
       }
-    }
-    if (event.type == "message" && event.message.type == "sticker") {
-      text_reply("ああ、スタンプで会話終わらそうとするあれね");
+    } else if (event.type == "message" && event.message.type == "sticker") {
+      text_reply(message_stamp);
     }
   });
 
