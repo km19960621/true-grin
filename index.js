@@ -158,7 +158,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text_reply(message);
       }
     } else if (event.type == "message" && event.message.type == "sticker") {
-      text_reply(message_stamp);
+      text_reply("test");
     }
   });
 
