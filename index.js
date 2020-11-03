@@ -52,6 +52,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message = message_rand(messages);
 
     const messages_birthday = [
+      "ありがと！ぴえん🥺",
       "ありがとよ！",
       "ウサイン・ボルト氏の誕生日？それなら1986/8/21だよ",
       "俺今日誕生日じゃねえよぉ〜〜〜",
@@ -101,13 +102,13 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     ];
     const message_question = message_rand(messages_question);
 
-    /*const messages_stamp = [
+    const messages_stamp = [
       "༼;´༎ຶ ۝ ༎ຶ༽",
       "ああ、スタンプで会話終わらせようとするアレね",
       "言葉にしないと伝わらない思いもあると思うぜ"
     ];
     const message_stamp = message_rand(messages_stamp);
-*/
+
     const messages_thank = [
       "ありがとう",
       "あんたに褒められても嬉しくないんだからね！///",
@@ -156,9 +157,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else {
         text_reply(message);
       }
-    }/* else if (event.type == "message" && event.message.type == "sticker") {
+    } else if (event.type == "message" && event.message.type == "sticker") {
       text_reply(message_stamp);
-    }*/
+    }
   });
 
   Promise.all(events_processed).then(
