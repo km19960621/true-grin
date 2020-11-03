@@ -123,7 +123,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       }));
     };
 
-    if (event.type == "message" && event.message.type == "text") {
+    if (event.message.type == "text") {
       if (event.message.text.length == 1) {
         text_reply(message_one);
       } else if (event.message.text == "@bye") {
@@ -157,7 +157,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else {
         text_reply(message);
       }
-    } else {//if (event.type == "message" && event.message.type == "sticker") {
+    } else if (event.message.type == "sticker") {
       text_reply(message_stamp);
     }
   });
