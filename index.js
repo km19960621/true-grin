@@ -23,12 +23,12 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const messages = [
       `${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}`,
       `${event.message.text.substr(0, 2)}市`,
+      `${event.message.text.substr(0, 2)}らふぃー`,
       `${event.message.text.substr(0, 4)}クエスト${Math.floor(Math.random() * 11)}`,
       `新機能・文字数カウンター発動！\n先ほどのメッセージの文字数は${event.message.text.length}文字です・・・！`,
       `なるほど、${event.message.text}なのね！（これぞバックトラッキング）`,
       "┌(┌^o^)┐",
       "@bye",
-      "Hey,let\'s grin with me!",
       "UREEYYY",
       "運命運命w",
       "男には死ぬと分かっていても戦わなければならない時がある。それが今だ。",
