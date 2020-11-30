@@ -24,24 +24,24 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       `${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}${event.message.text.charAt(0)}`,
       `${event.message.text.substr(0, 2)}市`,
       `${event.message.text.substr(0, 2)}らふぃー`,
-      `${event.message.text.substr(0, 4)}クエスト${Math.floor(Math.random() * 11)}`,
       `新機能・文字数カウンター発動！\n先ほどのメッセージの文字数は${event.message.text.length}文字です・・・！`,
-      `なるほど、${event.message.text}なのね！（これぞバックトラッキング）`,
+      `なるほど、${event.message.text}なのね！（バックトラッキング）`,
       "┌(┌^o^)┐",
       "@bye",
       "UREEYYY",
       "運命運命w",
       "男には死ぬと分かっていても戦わなければならない時がある。それが今だ。",
-      "学習できるbotになりたいぜ",
+      "学習できるbotに、俺はなる！",
       "カレー飲んだことある？",
       "艱難辛苦っ・・・・・！",
       "今日もあっそぼー！",
       "人生とはネェ..出会いと別れだよネェ...",
-      "そういう考え方もあると思う。だからこそ私はそういう考え方もあるのではないかと思う。",
+      "スマイルください",
+      "それはある意味では正しいと思います。だからこそ私はそれはある意味では正しいのではないかと思っている。",
       "それは論点のすり替えだ",
       "それもまた一興",
       "たーしかに",
-      "ただいま緊急メンテナンス中です。メッセージを送信しないでください。",
+      "ただいま緊急メンテナンス中です。過負荷によりサーバーが発火する恐れがあるためメッセージを送信しないでください。",
       "黙れ豆",
       "時は金なり・・・！",
       "バッチコイベイベー！",
@@ -54,9 +54,9 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const messages_birthday = [
       "ありがと！ぴえん🥺",
       "ありがとよ！",
-      "ウサイン・ボルト氏の誕生日？それなら1986/8/21だよ",
+      "ウサイン・ボルトの誕生日：1986/8/21",
       "俺今日誕生日じゃねえよぉ〜〜〜",
-      "誕生日おめでとう、長生きしてね"
+      "ハッピー ジャムジャム 最高 踊ろうよ"
     ];
     const message_birthday = message_rand(messages_birthday);
 
@@ -67,15 +67,16 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
     const message_emphasis = message_rand(messages_emphasis);
 
     const messages_laugh = [
-      "いい笑顔だ",
-      "笑う門には福来たる",
-      "笑っていられるのも今のうちだぜ"
+      "君の笑顔が僕に生きる希望を与えてくれる",
+      "スマイル ¥0",
+      "笑う門には福来たる（笑）",
     ];
     const message_laugh = message_rand(messages_laugh);
 
     const messages_link = [
       "URL 貼っても見るとは 限らない",
-      "http://www.carddass.com/ownersleague/"
+      "http://www.carddass.com/ownersleague/",
+      "警告！上記のURLからウイルスが38個検出されました！"
     ];
     const message_link = message_rand(messages_link);
 
@@ -96,8 +97,8 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
 
     const messages_question = [
       `${event.message.text.replace("？", "ლ(^o^ლ)")}`,
-      `「${event.message.text}」ですか。ええ、現段階で明らかなこと、それはあなたが「${event.message.text}」と問うていることそれ自体なんです。`,
       "あと3時間考えればわかるかも",
+      `現段階で一つ確かに言えること、それはあなたが「${event.message.text}」と問うていることそれ自体なんです。`,
       "答えは風の中さ・・・"
     ];
     const message_question = message_rand(messages_question);
@@ -135,7 +136,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else if (event.message.text.match(/いいね/) || event.message.text.match(/可愛い/) || event.message.text.match(/すご/)) {
         text_reply(message_thank);
       } else if (event.message.text.match(/オーナーズリーグ/)) {
-        text_reply("オーナーズリーグは神");
+        text_reply("私はオーナーズリーグの復活を信じています");
       } else if (event.message.text.match(/健/) || event.message.text.match(/サンバ/) || event.message.text.match(/マツケン/) || event.message.text.match(/松平/)) {
         text_reply(message_matsuken);
       } else if (event.message.text.match(/邪魔/) || event.message.text.match(/じゃま/)) {
