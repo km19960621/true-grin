@@ -67,7 +67,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       "サンキューだ",
       "こうして人が人を祝う様、これほど美しい光景が他にあるだろうか、いや、ない。（反語）"
     ];
-    const messages_celebrate = message_rand(messages_celebrate);
+    const message_celebrate = message_rand(messages_celebrate);
 
     const messages_emphasis = [
       `${event.message.text}、${event.message.text}！`,
@@ -156,7 +156,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
       } else if (event.message.text.match(/誕生日/) || event.message.text.match(/ハッピーバースデ/)) {
         text_reply(message_birthday);
       } else if (event.message.text.matech(/おめ/)) {
-        text_reply(messages_celebrate);
+        text_reply(message_celebrate);
       } else if (event.message.text.match(/何して/)) {
         text_reply("㊙︎");
       } else if (event.message.text.match(/バグ/)) {
