@@ -155,7 +155,7 @@ server.post('/bot/webhook', line.middleware(line_config), (req, res, next) => {
         text_reply("これだから最近の若いもんは");
       } else if (event.message.text.match(/誕生日/) || event.message.text.match(/ハッピーバースデ/)) {
         text_reply(message_birthday);
-      } else if (event.message.text.matech(/おめ/)) {
+      } else if (event.message.text.match(/おめ/)) {
         text_reply(message_celebrate);
       } else if (event.message.text.match(/何して/)) {
         text_reply("㊙︎");
